@@ -13,7 +13,8 @@ namespace cspWeather
 
         public static async Task<CurrentWeather> GetCurrentWeatherAsync(double latitude, double longitude)
         {
-            string apiKey = "5509f505ec53c5e28132bc90e0cceea1"; // Replace with your API key
+            // THIS API KEY IS REDACTED. REPLACE WITH YOUR OWN.
+            string apiKey = System.Environment.GetEnvironmentVariable("owmKey"); 
             string apiUrl = $"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&units=imperial&appid={apiKey}"; // Current weather API
 
             try

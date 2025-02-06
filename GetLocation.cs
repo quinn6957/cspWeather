@@ -19,8 +19,11 @@ namespace cspWeather
 
         public static async Task<Tuple<double, double, string, string>> GetCoordinatesFromZip(int zipCode)
         {
+            // THIS API KEY IS REDACTED. REPLACE WITH YOUR OWN.
+            string geocodingKey = System.Environment.GetEnvironmentVariable("geocodingKey");
+
             // API to get latitude and longitude data from a ZIP code.
-            string geocodingUrl = $"https://www.zipcodeapi.com/rest/CeLl2c8oMYhTE4k1Aof1BJYWsABIOFx6glOegARGOYjbU4evvBb41eGI6eT2bpFB/info.json/{zipCode}/degrees";
+            string geocodingUrl = $"https://www.zipcodeapi.com/rest/{geocodingKey}/info.json/{zipCode}/degrees";
             try
             {
                 var response = await client.GetAsync(geocodingUrl);
